@@ -44,24 +44,18 @@ function App() {
   }, [todos])          //useeffect states that whenever todos is changed function is called i.e local storage
   return (
     <>
-    <Router>
-      <Header title="To Do List" searchBar={true} />
-      <Switch>
-      <Route exact path="/" render={()=>{
-        return (
-          <>
-        <AddTodo addTodo={addTodo} />
-        <Todos heading="My To Do List" todos={todos} onDelete={onDelete}/>
-        </>
-        )
-      }}>
+      <Router>
+        <Header title="To Do List" searchBar={true} />
+        <Switch>
+          <Route exact path="/">
+            <AddTodo addTodo={addTodo} />
+            <Todos heading="My To Do List" todos={todos} onDelete={onDelete} />
           </Route>
           <Route exact path="/about">
             <About />
           </Route>
         </Switch>
-      
-      <Footer />
+        <Footer />
       </Router>
     </>
   );
